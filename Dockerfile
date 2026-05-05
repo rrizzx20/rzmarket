@@ -44,5 +44,5 @@ COPY .render/nginx.conf /etc/nginx/sites-available/default
 # Expose port 80
 EXPOSE 80
 
-# Start Nginx and PHP-FPM
-CMD service nginx start && php-fpm
+# Run migration and start Nginx and PHP-FPM
+CMD php artisan migrate --force && service nginx start && php-fpm
